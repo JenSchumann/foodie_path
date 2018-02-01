@@ -1,0 +1,20 @@
+{
+  "name": "foodie_path",
+  "version": "1.0.0",
+  "description": "### **Designers:** Sarah Anderson, Jen Schumann, and possible others.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenSchumann/foodie_path.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenSchumann/foodie_path/issues"
+  },
+  "homepage": "https://github.com/JenSchumann/foodie_path#readme"
+}
