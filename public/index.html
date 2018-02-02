@@ -5,10 +5,13 @@
     <!-- until we think of a better name! -->
     <title>Foodie Path</title>
 
+    <!-- Fontawesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
     <!-- Styles -->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
     <link rel="stylesheet" href="./css/main.css">
 
@@ -23,12 +26,19 @@
 
   </head>
   <body ng-controller="FoodieController as lead">
-<header>
+
+    <!-- Navbar Section -->
+    <section id="navbar" ng-include="'./nav.html'"></section>
+
+    <header id="siteHeader">
 
 
-    <h1>Foodie Path is here</h1>
+    <h1>Foodie Path</h1>
 
-    <h2>{{lead.foodie}}</h2>
+    <!-- <h2>{{lead.foodie}}</h2> -->
+
+    <button class="btn btn-lg btn-success">Restaurant Search</button>
+    <button class="btn btn-lg btn-error">Post Review</button>
 </header>
   </body>
 </html>

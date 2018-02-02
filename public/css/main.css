@@ -1,4 +1,16 @@
 * {
-  border: 1px solid hotpink;
-  background-color: #39487f;
+  /* border: 1px solid hotpink;
+  background-color: #39487f; */
+}
+
+#siteHeader {
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  padding-top: 3.5%;
+}
+
+#navA, #navB, #navC {
+  padding-left: .5em;
+  padding-right: .5em;
 }
