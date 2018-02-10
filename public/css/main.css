@@ -14,3 +14,20 @@
   padding-left: .5em;
   padding-right: .5em;
 }
+
+.panel {
+  width: 46%;
+  height: auto;
+}
+
+#panelLeft {
+  float: left;
+  margin-left: 2.5%;
+
+}
+
+#panelRight {
+  float: right;
+  margin-right: 2.5%;
+
+}
