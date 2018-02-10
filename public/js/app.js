@@ -13,3 +13,18 @@ app.controller('FoodieController', ['$http', function($http){
   this.foodie = "Where's the beef?";
 
 }]); //end of FoodieController
+
+////////////////////////////////////////////////////////////
+
+//Profile controller
+
+////////////////////////////////////////////////////////////
+
+app.controller('ProfileController', ['$http', '$scope', function($http, $scope){
+  const controller = this;
+  this.persona = "As God is my witness, I will never be hungry again."
+
+
+
+
+}]); //end of ProfileController
