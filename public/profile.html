@@ -1,33 +1,108 @@
 <div ng-controller="ProfileController as profile">
 <br><br><br>
+
+<!-- this is a demo panel we might add for our users to view their profile... 'I've added content directly to the html to model.. if we keep this we can pull data using angular/controller/app.js CRUD routing -->
+<!-- as part of a profile creation we may have user select types of diet options they are looking for on restaurant menus -->
+
   <div class="panel" id="panelLeft">
+
     <div class="panel-header">
-      <div class="panel-title">Comments</div>
+      <br>
+      <figure class="avatar avatar-xl">
+        <img src="assets/if_FI02_20226.png" alt="JS">
+        <i class="avatar-presence online"></i>
+        <br>
+      </figure>
+
+      <h2 class="panel-title">Jen Schumann</h3>
+      <h3 class="text-uppercase">The Carnivore</h3>
+      <h5 class="text-italic"><em>{{profile.persona}}</em></h5>
+      <div class="divider"></div>
     </div>
+
+
     <div class="panel-nav">
       <!-- navigation components: tabs, breadcrumbs or pagination -->
-    </div>
+
+      <ul class="tab tab-block">
+            <li class="tab-item active">
+            <a href="#" ng-click="userProfile = ! userProfile">Profile</a>
+            </li>
+
+            <li class="tab-item">
+              <a href="#" ng-click="userFiles = ! userFiles">Files</a>
+            </li>
+
+            <li class="tab-item">
+            <a href="#" ng-click="userTasks = ! userTasks">Tasks</a>
+            </li>
+      </ul>
+
+    </div> <!-- end panel-nav -->
+    <br>
     <div class="panel-body">
       <!-- contents -->
+          <section id="userProfile" ng-hide="userProfile">
 
-      {{profile.persona}}
-    </div>
+            <h5><strong>About:</strong>Experiments mostly w/Paleo diet and you can follow my foodie pinterest board <a href="https://www.pinterest.com/jennifergeeslin/eat-me/" target="_blank">here.</a></h5>
+
+            <h5><strong>Fave Recipes:</strong></h5>
+            <ul>
+              <li><a href="https://www.cookingclassy.com/zuppa-toscana-soup-olive-garden-copycat-recipe/" target="_blank">Zuppa Toscana Soup</a></li>
+
+              <li><a href="https://www.skinnybitch.net/cabbage-soup-diet/" target="_blank">Cabbage Soup</a></li>
+            </ul>
+
+            <h5><strong>Fave Restaurants:</strong></h5>
+            <ul>
+              <li>Goat & Clover Tavern</li>
+              <li>Bin 707</li>
+              <li>The Winery</li>
+            </ul>
+
+          </section>
+
+          <section id="userFiles" ng-show="userFiles">
+
+              <h1>tab two content</h1>
+
+          </section>
+
+          <section id="userTasks" ng-show="userTasks">
+
+              <h1>tab three content</h1>
+
+          </section>
+
+    </div><!-- end panel-body -->
+
     <div class="panel-footer">
       <!-- buttons or inputs -->
-    </div>
-  </div>
+        <div class="btn-group btn-group-block">
+              <button class="btn btn-error">Update</button>
+              <button class="btn btn-success">Delete</button>
+        </div>
+        <button class="btn btn-primary btn-block">Save</button>
+      </div> <!-- end panel-footer -->
+    </div> <!-- end panelLeft -->
+
+
 
   <div class="panel" id="panelRight">
     <div class="panel-header">
+
       <div class="panel-title">Comments</div>
+
     </div>
     <div class="panel-nav">
       <!-- navigation components: tabs, breadcrumbs or pagination -->
+
+
     </div>
     <div class="panel-body">
       <!-- contents -->
 
-      {{profile.persona}}
+    
     </div>
     <div class="panel-footer">
       <!-- buttons or inputs -->

@@ -15,9 +15,14 @@
   padding-right: .5em;
 }
 
+.panel-header {
+  text-align: center;
+}
+
 .panel {
   width: 46%;
   height: auto;
+  text-align: center;
 }
 
 #panelLeft {
@@ -30,4 +35,9 @@
   float: right;
   margin-right: 2.5%;
 
+}
+
+li {
+	list-style: none;
+  top: 0;
 }
