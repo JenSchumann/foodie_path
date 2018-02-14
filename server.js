@@ -5,14 +5,18 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 //for testing purposes during set up
 //index route
-app.get('/', (req, res)=>{ 
+app.get('/', (req, res)=>{
   res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
+  res.render('index.ejs');
 });
 
 // app.get('/foodie', (request, response) => {
