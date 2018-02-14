@@ -1,5 +1,7 @@
+//dependencies
 const mongoose = require('mongoose');
 
+//Schema
 const profileSchema = mongoose.Schema({
 
   author: {type:String, default: ''},
@@ -15,8 +17,6 @@ const profileSchema = mongoose.Schema({
   favoriteRecipes: String,
   favoriteRestaurants: String,
   comments: [{ type: String }]
-
-
 
 });
 
