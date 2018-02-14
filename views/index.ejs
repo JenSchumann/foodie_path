@@ -40,7 +40,26 @@
     <button class="btn btn-lg btn-success">Restaurant Search</button>
     <button class="btn btn-lg btn-error">Post Review</button>
 </header>
+<nav>
+          <%# <li>I'd like to make a recommendation</li>
+          <li>I'd like to request a recommendation</li>
+          <li>See my recommendations</li>%>
+          <form>
+            <input type="button" value="Login" onclick="window.location.href='/sessions/login'"/>
+            <input type="button" value="Register" onclick="window.location.href='/sessions/register'"/>
+            <%# <input type="button" value="My Account" onclick="window.location.href='/users/account'"/>
+            <input type="button" value="Users" onclick="window.location.href='/users'"/>
+            <input type="button" value="Recommendations" onclick="window.location.href='/recs'"/>%>
+          </form>
 
+          <%# <li><a href="/sessions/logout">Logout</a></li>%>
+      </nav>
+<!-- Login Logout -->
+<% if(currentUser) { %>
+<form action="/sessions?_method=DELETE" method="POST">
+<input type="submit" value="Logout"/>
+</form>
+<% } %>
 <!-- Profile Section -->
       <!-- <section id="profile" ng-include="'./profile.html'"></section> -->
   </body>
