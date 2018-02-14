@@ -2,7 +2,7 @@
 ### **Have you found "the way" when it comes to healthy eating?  But then, the path to eating healthy is hard to navigate and wayyyy toooo tempting when it comes to dining out?!?!  Foodie Path will help you find the restaurants with the menu options you seek so that your path remains clean and pure.**
 
 ### **Designers:**
-Sarah Anderson, Jen Schumann, and Samantha Ramos
+<a href="https://github.com/sarahrae44">Sarah Anderson</a>, Jen Schumann, and Samantha Ramos
 
 ### **About:**
 
