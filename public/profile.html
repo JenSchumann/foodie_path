@@ -8,7 +8,7 @@
 
   <!-- Create User Profile Form -->
   <div ng-if="profile.newDisplay">
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="profile.createProfile()">
       <h1>Create Your Profile</h1>
           <div class="form-group">
             <div class="col-3">
@@ -51,7 +51,7 @@
               <label class="form-label" for="input-example-1">Diet Preference</label>
             </div>
               <div class="col-6">
-                <select class="form-select">
+                <select class="form-select" ng-model="profile.dietPreference">
     <!-- use angularJS slack link in trello to integrate ng-options into this form input -->
                   <option>Choose an option</option>
                   <option>Vegan</option>

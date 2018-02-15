@@ -11,13 +11,18 @@ app.use(express.static('public'));
 
 //for testing purposes during set up
 //index route
-app.get('/', (req, res)=>{ 
+app.get('/', (req, res)=>{
   res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
 });
 
 // app.get('/foodie', (request, response) => {
 //     response.send('Foodies Love Food!');
 // });
+
+//controllers
+const profileController = require('./controllers/profile.js');
+app.use('/profile', profileController);
+
 
 
 

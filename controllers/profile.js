@@ -25,9 +25,11 @@ router.post('/', function(req, res){
     //   { username: req.session.username },
     //   { $push: {profile: createdProfile}},
     //   { safe: true, upsert: true, new: true},
-    //   (err, model)=>{
-    //     console.log(err);
-    //   })
-    // res.json(createdProfile);
+      (err, model)=>{
+        console.log(err);
+      }
+    res.json(createdProfile);
   });
 });
+
+module.exports = router;
