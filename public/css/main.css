@@ -26,6 +26,11 @@
   justify-content: center;
 }
 
+#submitProfileCreation {
+  margin-bottom: 2em;
+/* figure out how to center this */
+}
+
 .form-group {
   width: 75%
   margin: 0 auto;
@@ -51,8 +56,6 @@
   align-items: center;
   margin: 0 auto; */
   /* color: white; */
-
-
 }
 
 div.tile {
@@ -64,7 +67,6 @@ div.tile {
   height: auto;
   height: 45em;
   overflow: scroll;
-
 }
 
 #panelLeft {
@@ -78,7 +80,6 @@ div.tile {
   float: right;
   margin-right: 2.5%;
   margin-bottom: 5em;
-
 }
 
 .tile {
