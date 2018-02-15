@@ -10,6 +10,7 @@ const profileSchema = mongoose.Schema({
   alias: { type: String, default: '' },
   headline: { type: String, default: '' },
   bio: { type: String, default: '' },
+  dietPreference: { type: String, default: '' },
 
   files: { type: String, default: '' },
   tasks: { type: String, default: '' },

@@ -20,9 +20,15 @@ app.controller('FoodieController', ['$http', function($http){
 
 ////////////////////////////////////////////////////////////
 
+
 app.controller('ProfileController', ['$http', '$scope', function($http, $scope){
   const controller = this;
   this.persona = "As God is my witness, I will never be hungry again."
+
+  this.toggleNew = function(){
+    console.log('Do I look fat in this outfit?');
+    this.newDisplay = !this.newDisplay;
+  }
 
 
 

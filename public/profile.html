@@ -1,8 +1,70 @@
 <div ng-controller="ProfileController as profile">
 <br><br><br>
 
-<!-- this is a demo panel we might add for our users to view their profile... 'I've added content directly to the html to model.. if we keep this we can pull data using angular/controller/app.js CRUD routing -->
-<!-- as part of a profile creation we may have user select types of diet options they are looking for on restaurant menus -->
+<header id="profileHeader">
+    <button class="btn btn-lg btn-primary" id="createProfileBtn" type="submit" ng-click="profile.toggleNew();">Create Profile</button>
+    <br>
+</header>
+
+  <!-- Create User Profile Form -->
+  <div ng-if="profile.newDisplay">
+    <form class="form-horizontal">
+      <h1>Create Your Profile</h1>
+          <div class="form-group">
+            <div class="col-3">
+              <label class="form-label" for="input-example-1">Email</label>
+            </div>
+            <div class="col-6">
+              <input class="form-input" type="text" ng-model="profile.email" placeholder="Email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-3">
+              <label class="form-label" for="input-example-1">Alias</label>
+            </div>
+            <div class="col-6">
+              <input class="form-input" type="text" ng-model="profile.alias" placeholder="Alias... aka Julia Child?">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-3">
+              <label class="form-label" for="input-example-1">Headline</label>
+            </div>
+            <div class="col-6">
+              <input class="form-input" type="text" ng-model="profile.headline" placeholder="Headline Announcing Your Foodie Presence">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-3">
+              <label class="form-label" for="input-example-1">Bio</label>
+            </div>
+            <div class="col-6">
+              <input class="form-input" type="text" ng-model="profile.bio" placeholder="Short bio about your foodie side">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-3">
+              <label class="form-label" for="input-example-1">Diet Preference</label>
+            </div>
+              <div class="col-6">
+  <select class="form-select">
+    <option>Choose an option</option>
+    <option>Vegan</option>
+    <option>Paleo</option>
+    <option>Keto</option>
+    <option>Gluten-free</option>
+    <option>Whole 30</option>
+  </select>
+    </div>
+</div>
+
+
+</form>
+  </div>
 
   <div class="panel" id="panelLeft">
 

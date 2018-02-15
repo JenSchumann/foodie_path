@@ -10,16 +10,36 @@
   padding-top: 3.5%;
 }
 
+#profileHeader {
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+}
+
 #navA, #navB, #navC {
   padding-left: .5em;
   padding-right: .5em;
 }
 
-.panel-header {
-/* background-color: black;
-padding: 75%; */
-  /* position: absolute; */
-  /* align-self: center; */
+#createProfileBtn {
+  margin-bottom: 2em;
+  justify-content: center;
+}
+
+.form-group {
+  width: 75%
+  margin: 0 auto;
+  text-align: right;
+}
+
+.form-horizontal {
+  border: 5px solid #A9A9A9;
+  padding: .25em;
+  margin: .75em;
+}
+
+.form-label {
+  padding-right: .25em;
 }
 
 #commentTitle {
