@@ -20,7 +20,7 @@ const profileSchema = mongoose.Schema({
 
 });
 
-const Profile = mongoose.model('Profile', smackSchema)
+const Profile = mongoose.model('Profile', profileSchema)
 
 
 //exports
