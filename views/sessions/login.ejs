@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Foodie Path Login page</title>
+  </head>
+  <body>
+    <header>
+      <h1>FoodiePath</h1>
+    </header>
+    <form action="/sessions/login" method="POST">
+      Username: <input type="text" name="username" value="" required></br>
+      Password: <input type="password" name="password" value="" required><br/>
+      <button>Log in</button><br/>
+      <br/>
+      or<br/>
+    </form>
+    <form>
+      <input type="button" value="Register for an account" onclick="window.location.href='/sessions/register'"/>
+    </form>
+    <% if(message) {%>
+      <%=message %>
+    <% } %>
+    <form>
+      <input type="button" value="Home" onclick="window.location.href='/'"/>
+    </form>
+  </body>
+</html>
