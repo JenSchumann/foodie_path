@@ -19,7 +19,9 @@
   "homepage": "https://github.com/JenSchumann/foodie_path#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",

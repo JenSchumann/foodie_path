@@ -11,8 +11,161 @@ const app = angular.module('FoodieApp', []);
 app.controller('FoodieController', ['$http', function($http){
   const controller = this;
   this.foodie = "Where's the beef?";
-
+  this.modal = false;
+  this.aboutModal = false;
+  this.toggleModal = function() {
+    this.modal = !this.modal;
+    this.aboutModal = !this.aboutModal;
+    console.log('foodieController working');
+  }
 }]); //end of FoodieController
+
+////////////////////////////////////////////////////////////
+
+//User controller
+
+////////////////////////////////////////////////////////////
+
+app.controller('UserController', ['$http', '$scope', function($http, $scope) {
+  const controller = this;
+  this.modal = false;
+  this.loggedIn = false;
+  this.loginForm = true;
+  this.registerForm = false;
+  this.newDisplay = false;
+  this.currentUser = {};
+
+  this.toggleNew = function(){
+    this.newDisplay = !this.newDisplay;
+    this.reset = function() {
+      this.addForm.reset();
+    }
+  }
+  this.toggleModal = function() {
+    this.modal = !this.modal;
+  };
+  this.toggleForms = function() {
+    this.registerForm = !this.registerForm;
+    this.loginForm = !this.loginForm;
+  };
+  this.register = function(email, username) {
+    $http({
+      method: 'POST',
+      url: '/users/register',
+      data: {
+        username: this.registeredUsername,
+        password: this.registeredPassword
+      }
+    }).then(function(response) {
+      controller.loggedIn = response.data;
+      controller.registerForm = false;
+      console.log('new foodie created');
+    }, function(err) {
+      console.log(err);
+    });
+  };
+  this.goToRegister = function() {
+    this.registerForm = true;
+    this.loginForm = false;
+  };
+  this.goToLogin = function() {
+    this.loginForm = true;
+    this.registerForm = false;
+  };
+  this.login = function(username, password) {
+    $http({
+      method: 'POST',
+      url: '/users/login',
+      data: {
+        username: this.loginUsername,
+        password: this.loginPassword
+      }
+    }).then(function(response) {
+      if(response.data === true) {
+        controller.loginForm = false;
+        controller.loggedIn = response.data;
+        controller.verifyLogin();
+        console.log('verified user is logged in');
+      } else {
+        controller.message = response.data
+      };
+    }, function(err) {
+      console.log(err);
+    });
+  };
+  this.logOut = function() {
+    $http({
+      method: 'GET',
+      url: '/users/logout'
+    }).then(function(response) {
+      controller.loggedIn = response.data;
+      controller.loginForm = true;
+      controller.username = {};
+      console.log('user logged out');
+    });
+  };
+  this.getUsers = function() {
+    $http({
+      method: 'GET',
+      url: '/users'
+    }).then(function(response) {
+      controller.allUsers = response.data;
+    }, function(err) {
+      console.log(err);
+    });
+  };
+  this.verifyLogin = function() {
+    $http({
+      method: 'GET',
+      url: 'users/verifyLogin'
+    }).then(function(response) {
+      $scope.verifyFoodie = response.data;
+    }, function(err) {
+      console.log(err);
+    });
+  };
+  this.setCurrentUser = function(id) {
+    $http({
+      method: 'GET',
+      url: '/users/' + id
+    }).then(function(response) {
+      controller.currentUser = response.data[0]
+      $scope.input = '';
+    }, function(err) {
+      console.log(err);
+    });
+  };
+  this.updateUser = function(id) {
+    console.log('works');
+    $http({
+      method: 'PUT',
+      url: '/users/' + id.allUsers._id,
+      data: this.editedUser
+    }).then(function(response) {
+      controller.getUsers();
+      controller.currentUser = {};
+      controller.user = {};
+      controller.editedUser = {};
+    }, function(err) {
+      console.log(err);
+    });
+  };
+  this.deleteUser = function(user) {
+    $http({
+      method: 'DELETE',
+      url: '/users/' + user,
+    }).then(function(response) {
+      controller.getUsers();
+      controller.modal = false;
+      controller.logOut();
+    }, function(err) {
+      console.log('user delete route error');
+      console.log(err);
+    });
+  };
+  this.getUsers();
+}]);
+// end of usersController
 
 ////////////////////////////////////////////////////////////
 

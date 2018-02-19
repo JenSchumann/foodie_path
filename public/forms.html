@@ -1,0 +1,34 @@
+  <div id="login" class="text-center" ng-if=user.loginForm>
+    <h1>Login</h1>
+    <form ng-submit="user.login();">
+
+        <input type="username" ng-model="user.loginUsername" placeholder="Username">
+        <!-- <br>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br> -->
+
+
+        <input type="password" ng-model="user.loginPassword" placeholder="Password"><br><br>
+
+      <button type="submit" class="btn btn-warning" >Login</button><br>
+    </form>
+    <h5>{{user.message}}</h5><br>
+    Don't have an account?
+    <button class="btn btn-warning" ng-click="user.toggleForms()">Register!</button><br>
+  </div>
+
+<!-- Register Form -->
+  <div id="register" class="text-center" ng-if=user.registerForm>
+    <h1>Register Here</h1>
+    <form ng-submit="user.register();">
+
+        <input type="username" ng-model="user.registeredUsername" placeholder="Username"><br><br>
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br> -->
+
+        <input type="password" ng-model="user.registeredPassword" placeholder="Password"><br><br>
+
+      <button type="submit" class="btn btn-warning" >Register</button><br>
+    </form>
+    <br>
+    Already Registered?
+    <button class="btn btn-warning" ng-click="user.toggleForms()">Login</button><br>
+  </div>

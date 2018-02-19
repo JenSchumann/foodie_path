@@ -30,6 +30,11 @@
     <!-- Navbar Section -->
     <section id="navbar" ng-include="'./nav.html'"></section>
 
+    <!-- Signup/Login Forms Section -->
+    <section ng-controller="UserController as user">
+      <section id="forms" ng-include="'./forms.html'"></section>
+    </section>
+
     <header id="siteHeader">
 
 
@@ -42,6 +47,6 @@
 </header>
 
 <!-- Profile Section -->
-      <!-- <section id="profile" ng-include="'./profile.html'"></section> -->
+      <section id="profile" ng-include="'./profile.html'"></section>
   </body>
 </html>
