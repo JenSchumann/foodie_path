@@ -10,13 +10,7 @@
   padding-top: 3.5%;
 }
 
-#profileHeader {
-  margin: 0 auto;
-  text-align: center;
-  justify-content: center;
-}
-
-#navA, #navB, #navC {
+#navA{
   padding-left: .5em;
   padding-right: .5em;
 }
