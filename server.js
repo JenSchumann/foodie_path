@@ -34,6 +34,11 @@ app.get('/', (req, res)=>{
 //     response.send('Foodies Love Food!');
 // });
 
+//controllers
+const profileController = require('./controllers/profile.js');
+app.use('/profile', profileController);
+
+
 
 
 
