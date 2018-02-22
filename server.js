@@ -15,19 +15,22 @@ app.use(session({
   saveUninitialized: false
 }));
 
-const sessionsController = require('./controllers/sessions.js');
-app.use('/sessions', sessionsController);
+// const sessionsController = require('./controllers/sessions.js');
+// app.use('/sessions', sessionsController);
 
-const usersController = require('./controllers/users.js');
-app.use('/users', usersController);
+// const usersController = require('./controllers/users.js');
+// app.use('/users', usersController);
 
 //for testing purposes during set up
 //index route
+
+app.use(express.static('public'));
+
 app.get('/', (req, res)=>{
-  // res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
-  res.render('index.ejs', {
-    currentUser: req.session.currentuser
-  });
+   res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
+  // res.render('index.ejs', {
+  //   currentUser: req.session.currentuser
+  // });
 });
 
 // app.get('/foodie', (request, response) => {
@@ -42,7 +45,6 @@ app.use('/profile', profileController);
 
 
 
-app.use(express.static('public'));
 
 //mongoose connection
 mongoose.connect('mongodb://localhost:27017/foodie');
