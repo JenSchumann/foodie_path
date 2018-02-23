@@ -17,11 +17,15 @@ app.use(session({
 
 app.use(express.static('public'));
 
+//controllers
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
+
+const profileController = require('./controllers/profile.js');
+app.use('/profile', profileController);
 
 //for testing purposes during set up
 //index route
@@ -37,9 +41,8 @@ app.get('/', (req, res)=>{
 //     response.send('Foodies Love Food!');
 // });
 
-//controllers
-const profileController = require('./controllers/profile.js');
-app.use('/profile', profileController);
+
+
 
 
 

@@ -25,6 +25,7 @@ app.controller('ProfileController', ['$http', '$scope', function($http, $scope){
   const controller = this;
   this.persona = "As God is my witness, I will never be hungry again.";
   this.currentProfile = {};
+  this.yelpDietLocations = [];
 
   this.toggleNew = function(){
     console.log('Do I look fat in this outfit?');
@@ -93,7 +94,32 @@ app.controller('ProfileController', ['$http', '$scope', function($http, $scope){
     })
   }
 
+  // Yelp Response =========================
+    this.getYelpResponse = function(){
+      $http({
+        method: 'POST',
+        url: '/restaurants/getYelpResponse',
+        data: {
+          location: this.yelpLocation
+        }
+      }).then(
+        function(response){
+          console.log('the button is working');
+          // for(let i = 0; i < (response.data).length; i++){
+          //   response.data[i].name,
+          //   response.data[i].rating,
+          //   response.data[i].price,
+          //   response.data[i].address1
+          // }
 
+          controller.yelpDietLocations = response.data;
+          controller.yelpLocation = '';
+        },
+        function(error){
+          console.log(error);
+        }
+      )
+    }
 
 
 }]); //end of ProfileController
