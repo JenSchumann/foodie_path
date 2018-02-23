@@ -15,6 +15,8 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use(express.static('public'));
+
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
@@ -24,10 +26,11 @@ app.use('/users', usersController);
 //for testing purposes during set up
 //index route
 app.get('/', (req, res)=>{
-  // res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
-  res.render('index.ejs', {
-    currentUser: req.session.currentuser
-  });
+  res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
+
+  //   // res.render('index.ejs', {
+  //   currentUser: req.session.currentuser
+  // });
 });
 
 // app.get('/foodie', (request, response) => {
