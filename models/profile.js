@@ -1,5 +1,6 @@
 //dependencies
 const mongoose = require('mongoose');
+const Restaurant = require('../models/restaurants.js');
 
 //Schema
 const profileSchema = mongoose.Schema({
@@ -16,7 +17,7 @@ const profileSchema = mongoose.Schema({
   tasks: { type: String, default: '' },
 
   favoriteRecipes: String,
-  favoriteRestaurants: String,
+  favoriteRestaurants: [Restaurant.schema],
   comments: [{ type: String }]
 
 });
