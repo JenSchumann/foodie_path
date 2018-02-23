@@ -94,32 +94,63 @@ app.controller('ProfileController', ['$http', '$scope', function($http, $scope){
     })
   }
 
-  // Yelp Response =========================
-    this.getYelpResponse = function(){
-      $http({
-        method: 'POST',
-        url: '/restaurants/getYelpResponse',
-        data: {
-          location: this.yelpLocation
-        }
-      }).then(
-        function(response){
-          console.log('the button is working');
-          // for(let i = 0; i < (response.data).length; i++){
-          //   response.data[i].name,
-          //   response.data[i].rating,
-          //   response.data[i].price,
-          //   response.data[i].address1
-          // }
+  // getrequest to YELP============================
+  this.getYelpResponse = function(){
+    $http({
+      headers: 'Authorization: Bearer' + controller.apiKey,
+      method: 'GET',
+      url: 'https://api.yelp.com/v3/businesses/search?term=delis',
 
-          controller.yelpDietLocations = response.data;
-          controller.yelpLocation = '';
-        },
-        function(error){
-          console.log(error);
-        }
-      )
-    }
+      data: {
+        // term: this.term,
+        location: this.yelpLocation
+      }
+    }).then(
+      function(response){
+        console.log('the button is working');
+        // for(let i = 0; i < (response.data).length; i++){
+        //   response.data[i].name,
+        //   response.data[i].rating,
+        //   response.data[i].price,
+        //   response.data[i].address1
+        // }
+
+        controller.yelpDietLocations = response.data;
+        controller.yelpLocation = '';
+      },
+      function(error){
+        console.log(error);
+      }
+    )
+  }
+
+  // Yelp Response =========================
+    // this.getYelpResponse = function(){
+    //   $http({
+    //     method: 'POST',
+    //     url: '/restaurants/',
+    //     // https://api.yelp.com/v3/businesses/search
+    //     data: {
+    //       location: this.yelpLocation
+    //     }
+    //   }).then(
+    //     function(response){
+    //       console.log('the button is working');
+    //       // for(let i = 0; i < (response.data).length; i++){
+    //       //   response.data[i].name,
+    //       //   response.data[i].rating,
+    //       //   response.data[i].price,
+    //       //   response.data[i].address1
+    //       // }
+    //
+    //       controller.yelpDietLocations = response.data;
+    //       controller.yelpLocation = '';
+    //     },
+    //     function(error){
+    //       console.log(error);
+    //     }
+    //   )
+    // }
 
 
 }]); //end of ProfileController

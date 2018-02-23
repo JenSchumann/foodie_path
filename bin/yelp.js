@@ -5,13 +5,9 @@ const apiKey = process.env.API_KEY
 
 const yelp = require('yelp-fusion');
 
-const token = yelp.accessToken(process.env.YELP_ID, process.env.YELP_SECRET).then(response => {
-  // console.log(response.jsonBody.access_token);
-}).catch(e => {
-  // console.log(e);
-});
 
-const client = yelp.client(process.env.YELP_TOKEN);
+
+const client = yelp.client(apiKey);
 
 // const client = yelp.client(apiKey);
 
