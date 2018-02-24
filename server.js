@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const user = require('./models/users.js');
+require('dotenv').config()
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -26,6 +28,12 @@ app.use('/users', usersController);
 
 const profileController = require('./controllers/profile.js');
 app.use('/profile', profileController);
+
+const restaurantController = require('./controllers/restaurants.js');
+app.use('/restaurants', restaurantController);
+
+// Fixes mongoose promise deprecation warning
+mongoose.Promise = global.Promise;
 
 //for testing purposes during set up
 //index route

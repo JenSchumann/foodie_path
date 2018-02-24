@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Restaurants = require('../models/Restaurants.js');
-const Profile = require('../models/Profile.js');
+const Restaurants = require('../models/restaurants.js');
+const Profile = require('../models/profile.js');
 const getYelpResponse = require('../bin/yelp.js');
 
 

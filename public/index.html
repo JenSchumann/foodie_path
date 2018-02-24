@@ -25,7 +25,7 @@
     <script src="./js/app.js" charset="utf-8"></script>
 
   </head>
-  <body ng-controller="FoodieController as lead">
+  <body ng-controller="FoodieController as ctrl">
 
     <!-- Navbar Section -->
     <section id="navbar" ng-include="'./nav.html'"></section>
@@ -36,32 +36,32 @@
     <h1>Foodie Path</h1>
 
     <!-- <h2>{{lead.foodie}}</h2> -->
-<section ng-controller="ProfileController as profile">
+<!-- <section ng-controller="ProfileController as profile"> -->
   <button class="btn btn-lg btn-success">Restaurant Search</button>
   <button class="btn btn-lg btn-error">Post Review</button>
 
 <!-- Yelp API response. -->
   <h3>Search for a meatstick near you:</h3>
-              <form ng-submit="profile.getYelpResponse()">
-                <div class="searchBox">Location: <input type="text" placeholder="city, state" ng-model="profile.yelpLocation">
+              <form ng-submit="ctrl.getYelpResponse()">
+                <div class="searchBox">Location: <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
                 <input class="searchBtn" type="submit" value="Search"></div>
               </form>
 
-              <ul>
-             <li class="listLi" ng-repeat="yelpDietLocation in ctrl.yelpDietLocations track by $index">
-               <div class="dietResponses">
-               <h5 class="dietResponseLocationName">{{ yelpDietLocation.name }}</h5>
-               <h6>Rating: {{ yelpDietLocation.rating}}<br/>
-               Price: {{ yelpDietLocation.price}}<br/>
-               Address: {{ yelpDietLocation.address1 }}</h6>
+              <!-- <ul>
+             <li class="" ng-repeat="yelpRestaurant in ctrl.yelpRestaurants track by $index">
+               <div class="">
+               <h5 class="">{{ yelpRestaurant.name }}</h5>
+               <h6>Rating: {{ yelpRestaurant.rating}}<br/>
+               Price: {{ yelpRestaurant.price}}<br/>
+               Address: {{ yelpRestaurant.address1 }}</h6>
                </div>
              </li>
-  </ul>
-</section>
+  </ul> -->
+<!-- </section> -->
 
 </header>
 
 <!-- Profile Section -->
-      <section id="profile" ng-include="'./profile.html'"></section>
+      <!-- <section id="profile" ng-include="'./profile.html'"></section> -->
   </body>
 </html>
