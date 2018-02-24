@@ -44,10 +44,10 @@
   <h3>Search for a meatstick near you:</h3>
               <form ng-submit="ctrl.getYelpResponse()">
                 <div class="searchBox">Location: <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
-                <input class="searchBtn" type="submit" value="Search"></div>
+                <input type="submit" value="Search"></div>
               </form>
 
-              <!-- <ul>
+              <ul>
              <li class="" ng-repeat="yelpRestaurant in ctrl.yelpRestaurants track by $index">
                <div class="">
                <h5 class="">{{ yelpRestaurant.name }}</h5>
@@ -56,7 +56,7 @@
                Address: {{ yelpRestaurant.address1 }}</h6>
                </div>
              </li>
-  </ul> -->
+  </ul>
 <!-- </section> -->
 
 </header>

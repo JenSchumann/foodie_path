@@ -26,14 +26,14 @@ app.controller('FoodieController', ['$http', function($http){
     }).then(
       function(response){
         console.log('the button is working');
-        // for(let i = 0; i < (response.data).length; i++){
-        //   response.data[i].name,
-        //   response.data[i].rating,
-        //   response.data[i].price,
-        //   response.data[i].address1
-        // }
+        for(let i = 0; i < (response.data).length; i++){
+          response.data[i].name,
+          response.data[i].rating,
+          response.data[i].price,
+          response.data[i].address1
+        }
 
-        controller.yelpDietLocations = response.data;
+        controller.yelpRestaurants = response.data;
         controller.yelpLocation = '';
       },
       function(error){
