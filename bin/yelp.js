@@ -2,7 +2,9 @@
 
 const yelp = require('yelp-fusion');
 
-const apiKey ='-2nsGNuxN6hJzerJ_eMXNU40hvpJWRiIL_d3SPt7w4oG_VpYbs3aGSrb868vf7pET6LbyvY7l30g_GQrx2LXNl-ivr8UOJAx31sbVJAEW_uoI6v6c3deVOVXVLqQWnYx';
+// const apiKey ='-2nsGNuxN6hJzerJ_eMXNU40hvpJWRiIL_d3SPt7w4oG_VpYbs3aGSrb868vf7pET6LbyvY7l30g_GQrx2LXNl-ivr8UOJAx31sbVJAEW_uoI6v6c3deVOVXVLqQWnYx';
+
+const apiKey = process.env.API_KEY;
 
 const client = yelp.client(apiKey);
 
