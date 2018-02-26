@@ -34,6 +34,32 @@ router.post('/', function(req, res){
   });
 });
 
+//update route
+router.put('/:id', function(req, res){
+  Profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedProfile)=> {
+    // User.findOneAndUpdate(
+    //   { username: req.session.username},
+    //   { $set: { Flabbie: updatedProfile}},
+    //   { safe: true, upsert: true, new: true },
+      (err, model)=> {
+        console.log(err);
+      }
+      res.json(updatedProfile)
+  });
+});
+
+//delete route
+router.delete('/:id', function(req, res){
+  Profile.findByIdAndRemove(req.params.id, (err, deletedProfile)=>{
+    User.findOne({ username: req.session.username}, (err, foundUser)=> {
+      // foundUser.Profile.id(req.params.id).remove();
+      // foundUser.save((err, data)=> {
+      //   res.json(deletedProfile);
+      // })
+    });
+  });
+});
+
 
 // Yelp Response route ========================
 

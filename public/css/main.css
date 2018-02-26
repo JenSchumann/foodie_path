@@ -41,6 +41,11 @@
   padding-right: .25em;
 }
 
+#profileHeader {
+  margin: 0 auto;
+  text-align: center;
+}
+
 #commentTitle {
   position: absolute;
   /* align-self: center;
