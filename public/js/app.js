@@ -20,7 +20,7 @@ app.controller('FoodieController', ['$http', function($http){
       url: '/restaurants/getYelpResponse',
 
       data: {
-        // term: this.term,
+        term: this.yelpDiet,
         location: this.yelpLocation
       }
     }).then(
@@ -35,6 +35,7 @@ app.controller('FoodieController', ['$http', function($http){
 
         controller.yelpRestaurants = response.data;
         controller.yelpLocation = '';
+        controller.yelpDiet = '';
       },
       function(error){
         console.log(error);
