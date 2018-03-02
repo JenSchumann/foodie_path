@@ -39,7 +39,7 @@ router.post('/', function(req, res){
 
 router.post('/getYelpResponse', (req, res) => {
   console.log('req.body: ', req.body);
-  getYelpResponse(res, 'coffee', req.body);
+  getYelpResponse(res, req.body, req.body);
 });
 
 
