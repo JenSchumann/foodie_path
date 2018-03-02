@@ -41,9 +41,10 @@
   <button class="btn btn-lg btn-error">Post Review</button>
 
 <!-- Yelp API response. -->
-  <h3>Search for a meatstick near you:</h3>
+  <h3>Search for an accommodating restaurant near you:</h3>
               <form ng-submit="ctrl.getYelpResponse()">
-                <div class="searchBox">Location: <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
+                <div class="searchBox">Diet: <input type="text" placeholder="diet preference" ng-model="ctrl.yelpDiet">
+                <div class="searchBox"> in <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
                 <input type="submit" value="Search"></div>
               </form>
 

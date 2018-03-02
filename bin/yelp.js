@@ -12,7 +12,7 @@ const getYelpResponse = (res, term, body) => {
 let yelpResponse = [];
 
 client.search({
-  term: term,
+  term: body.term,
   location: body.location
 }).then(response => {
   for(let i = 0; i < (response.jsonBody.businesses).length; i++) {
