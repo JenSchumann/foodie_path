@@ -1,102 +1,72 @@
-<!DOCTYPE html>
-<html ng-app="FoodieApp">
-  <head>
-    <meta charset="utf-8">
-    <!-- until we think of a better name! -->
-    <title>Foodie Path</title>
+  <!DOCTYPE html>
+  <html ng-app="FoodieApp">
+    <head>
+      <meta charset="utf-8">
+      <!-- until we think of a better name! -->
+      <title>Foodie Path</title>
 
-    <!-- Fontawesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+      <!-- Fontawesome -->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+      <!-- Styles -->
+      <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
-    <link rel="stylesheet" href="./css/main.css">
+      <link rel="stylesheet" href="./css/main.css">
 
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+      <!-- Scripts -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js" charset="utf-8"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js" charset="utf-8"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <script src="./js/app.js" charset="utf-8"></script>
+      <script src="./js/app.js" charset="utf-8"></script>
 
-  </head>
-  <body ng-controller="FoodieController as lead">
+    </head>
+    <body ng-controller="FoodieController as ctrl">
 
-    <!-- Navbar Section -->
-    <section id="navbar" ng-include="'./nav.html'"></section>
+      <!-- Navbar Section -->
+      <section id="navbar" ng-include="'./nav.html'"></section>
 
-    <header id="siteHeader">
+      <header id="siteHeader">
 
-    <div class="container">
-      <div class="columns">
-        <div class="column col-12">
-          <h1>Foodie Path</h1>
-          <p>Making better choices made easy.</p>
-        </div>
+      <h1>Foodie Path</h1>
+
+      <!-- <h2>{{lead.foodie}}</h2> -->
+  <!-- <section ng-controller="ProfileController as profile"> -->
+    <!-- <button class="btn btn-lg btn-success">Restaurant Search</button>
+    <button class="btn btn-lg btn-error">Post Review</button> -->
+
+  <!-- Yelp API response. -->
+    <h3>Search for an accommodating restaurant near you:</h3>
+    <form ng-submit="ctrl.getYelpResponse()">
+      <div class="searchBox"> Diet:
+      <input type="text" placeholder="diet preference" ng-model="ctrl.yelpDiet">
+      <!-- <div class="searchBox"> -->
+         in: <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
+        <input class= "btn btn-lg btn-success" type="submit" value="Search">
       </div>
+    </form>
+    <div class="searchResults">
+      <ul>
+        <li class="" ng-repeat="yelpRestaurant in ctrl.yelpRestaurants track by $index">
+          <div class="">
+          <h5 class="">{{ yelpRestaurant.name }}</h5>
+          <h6>Rating: {{ yelpRestaurant.rating}}<br/>
+          Price: {{ yelpRestaurant.price}}<br/>
+          Address: {{ yelpRestaurant.address1 }}</h6> <br>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <!-- <h2>{{lead.foodie}}</h2> -->
+  <!-- </section> -->
 
-    <button class="btn btn-lg btn-success">Restaurant Search</button>
-    <button class="btn btn-lg btn-error">Post Review</button>
-</header>
-<!-- <p>HELLOOOOOOO testing for which index renders</p> -->
-<div class="container">
-  <div class="columns">
-    <div class="column col-3">
-      <div class="card">
-        <div class="card-image">
-          <img src="" class="img-responsive">
-        </div>
-        <div class="card-header">
-          <div class="card-title h5">Paleo</div>
-          <div class="card-subtitle text-gray">find restaurants</div>
-        </div>
-        </div>
-    <!-- end of first card -->
-        <div class="card">
-          <div class="card-image">
-            <img src="" class="img-responsive">
-          </div>
-          <div class="card-header">
-            <div class="card-title h5">Whole 30</div>
-            <div class="card-subtitle text-gray">find restaurants</div>
-          </div>
-        </div>
-    <!-- end of 2nd card -->
-          <div class="card">
-            <div class="card-image">
-              <img src="" class="img-responsive">
-            </div>
-            <div class="card-header">
-              <div class="card-title h5">Keto</div>
-              <div class="card-subtitle text-gray">find restaurants</div>
-          </div>
-        </div>
-    <!-- end of 3rd card -->
-          <div class="card">
-            <div class="card-image">
-              <img src="" class="img-responsive">
-            </div>
-            <div class="card-header">
-              <div class="card-title h5">Gluten Free</div>
-              <div class="card-subtitle text-gray">find restaurants</div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
+  </header>
 
-
-
-
-<!-- Profile Section -->
-      <!-- <section id="profile" ng-include="'./profile.html'"></section> -->
-  </body>
-</html>
+  <!-- Profile Section -->
+        <!-- <section id="profile" ng-include="'./profile.html'"></section> -->
+    </body>
+  </html>

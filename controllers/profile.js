@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Profile = require('../models/profile.js');
+const Restaurant = require('../models/restaurants.js');
+const getYelpResponse = require('../bin/yelp.js');
 
 
 //index route
@@ -31,5 +33,14 @@ router.post('/', function(req, res){
     res.json(createdProfile);
   });
 });
+
+
+// Yelp Response route ========================
+
+router.post('/getYelpResponse', (req, res) => {
+  console.log('req.body: ', req.body);
+  getYelpResponse(res, req.body, req.body);
+});
+
 
 module.exports = router;

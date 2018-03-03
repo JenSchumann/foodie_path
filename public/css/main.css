@@ -110,3 +110,18 @@ li {
 	list-style: none;
   /* top: 0; */
 }
+
+
+/*sam stuff -- testing */
+.searchResults {
+  border: 1px solid red;
+}
+
+.searchBox {
+  border: 1px solid green;
+  text-align: justify;
+  padding-left: 35%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}

@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const user = require('./models/users.js');
+require('dotenv').config()
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -15,11 +17,23 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// const sessionsController = require('./controllers/sessions.js');
-// app.use('/sessions', sessionsController);
+app.use(express.static('public'));
+
+//controllers
+const sessionsController = require('./controllers/sessions.js');
+app.use('/sessions', sessionsController);
 
 // const usersController = require('./controllers/users.js');
 // app.use('/users', usersController);
+
+const profileController = require('./controllers/profile.js');
+app.use('/profile', profileController);
+
+const restaurantController = require('./controllers/restaurants.js');
+app.use('/restaurants', restaurantController);
+
+// Fixes mongoose promise deprecation warning
+mongoose.Promise = global.Promise;
 
 //for testing purposes during set up
 //index route
@@ -27,8 +41,9 @@ app.use(session({
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
-   res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
-  // res.render('index.ejs', {
+  res.send('fight the hangry; eat w/metabolic mindfulness.. ommmm');
+
+  //   // res.render('index.ejs', {
   //   currentUser: req.session.currentuser
   // });
 });
@@ -37,9 +52,8 @@ app.get('/', (req, res)=>{
 //     response.send('Foodies Love Food!');
 // });
 
-//controllers
-const profileController = require('./controllers/profile.js');
-app.use('/profile', profileController);
+
+
 
 
 
