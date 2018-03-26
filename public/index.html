@@ -1,31 +1,32 @@
-<!DOCTYPE html>
-<html ng-app="FoodieApp">
-  <head>
-    <meta charset="utf-8">
-    <!-- until we think of a better name! -->
-    <title>Foodie Path</title>
+  <!DOCTYPE html>
+  <html ng-app="FoodieApp">
+    <head>
+      <meta charset="utf-8">
+      <!-- until we think of a better name! -->
+      <title>Foodie Path</title>
 
-    <!-- Fontawesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+      <!-- Fontawesome -->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+      <!-- Styles -->
+      <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
-    <link rel="stylesheet" href="./css/main.css">
+      <link rel="stylesheet" href="./css/main.css">
 
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+      <!-- Scripts -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js" charset="utf-8"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js" charset="utf-8"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <script src="./js/app.js" charset="utf-8"></script>
+      <script src="./js/app.js" charset="utf-8"></script>
 
-  </head>
-  <body ng-controller="FoodieController as ctrl">
+    </head>
+    <body ng-controller="FoodieController as ctrl">
+
 
       <section ng-controller="UserController as user">
     <!-- Navbar Section -->
@@ -37,35 +38,40 @@
     <header id="siteHeader">
 
 
-    <h1>Foodie Path</h1>
 
-    <!-- <h2>{{lead.foodie}}</h2> -->
-<!-- <section ng-controller="ProfileController as profile"> -->
-  <button class="btn btn-lg btn-success">Restaurant Search</button>
-  <button class="btn btn-lg btn-error">Post Review</button>
+      <h1>Foodie Path</h1>
 
-<!-- Yelp API response. -->
-  <h3>Search for an accommodating restaurant near you:</h3>
-              <form ng-submit="ctrl.getYelpResponse()">
-                <div class="searchBox">Diet: <input type="text" placeholder="diet preference" ng-model="ctrl.yelpDiet">
-                <div class="searchBox"> in <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
-                <input type="submit" value="Search"></div>
-              </form>
+      <!-- <h2>{{lead.foodie}}</h2> -->
+  <!-- <section ng-controller="ProfileController as profile"> -->
+    <button class="btn btn-lg btn-success">Restaurant Search</button>
+    <button class="btn btn-lg btn-error">Post Review</button>
 
-              <ul>
-             <li class="" ng-repeat="yelpRestaurant in ctrl.yelpRestaurants track by $index">
-               <div class="">
-               <h5 class="">{{ yelpRestaurant.name }}</h5>
-               <h6>Rating: {{ yelpRestaurant.rating}}<br/>
-               Price: {{ yelpRestaurant.price}}<br/>
-               Address: {{ yelpRestaurant.address1 }}</h6>
-               </div>
-               <hr>
-             </li>
-  </ul>
-<!-- </section> -->
+  <!-- Yelp API response. -->
+    <h3>Search for an accommodating restaurant near you:</h3>
+    <form ng-submit="ctrl.getYelpResponse()">
+      <div class="searchBox">Diet: <input type="text" placeholder="diet preference" ng-model="ctrl.yelpDiet">
+      <div class="searchBox"> in <input type="text" placeholder="city, state" ng-model="ctrl.yelpLocation">
+      <input type="submit" value="Search"></div>
+    </form>
+    <div class="searchResults">
+      <ul>
+        <li class="" ng-repeat="yelpRestaurant in ctrl.yelpRestaurants track by $index">
+          <div class="">
+          <h5 class="">{{ yelpRestaurant.name }}</h5>
+          <h6>Rating: {{ yelpRestaurant.rating}}<br/>
+          Price: {{ yelpRestaurant.price}}<br/>
+          Address: {{ yelpRestaurant.address1 }}</h6> <br>
+          </div>
+        </li> 
+      </ul>
+    </div>
 
-</header>
+
+  <!-- </section> -->
+
+
+  </header>
+
 
 <!-- Profile Section -->
 
@@ -73,3 +79,4 @@
 </section>  <!-- end section tag for UserController -->
   </body>
 </html>
+
