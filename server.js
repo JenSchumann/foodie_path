@@ -20,9 +20,6 @@ app.use(session({
 app.use(express.static('public'));
 
 //controllers
-const sessionsController = require('./controllers/sessions.js');
-app.use('/sessions', sessionsController);
-
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 

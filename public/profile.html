@@ -1,4 +1,5 @@
-<div ng-controller="ProfileController as profile">
+<section id="profile" ng-controller="ProfileController as profile">
+
 <br><br><br>
 
 <header id="profileHeader">
@@ -98,8 +99,8 @@
         <br>
       </figure>
 
-      <h2 class="panel-title">Jen Schumann</h3>
-      <h3 class="text-uppercase">The Carnivore</h3>
+      <h2 class="panel-title">{{profile.author}}</h3>
+      <h3 class="text-uppercase">{{profile.alias}}</h3>
       <h5 class="text-italic"><em>{{profile.persona}}</em></h5>
       <div class="divider"></div>
     </div>
@@ -128,8 +129,8 @@
       <!-- contents -->
           <section id="userProfile" ng-hide="userProfile">
 
-            <h5><strong>About:</strong>Experiments mostly w/Paleo diet and you can follow my foodie pinterest board <a href="https://www.pinterest.com/jennifergeeslin/eat-me/" target="_blank">here.</a></h5>
-
+            <h5><strong>About:</strong>{{profile.bio}}</h5>
+<!-- Experiments mostly w/Paleo diet and you can follow my foodie pinterest board <a href="https://www.pinterest.com/jennifergeeslin/eat-me/" target="_blank">here.</a> -->
             <h5><strong>Fave Recipes:</strong></h5>
             <ul>
               <li><a href="https://www.cookingclassy.com/zuppa-toscana-soup-olive-garden-copycat-recipe/" target="_blank">Zuppa Toscana Soup</a></li>
@@ -387,4 +388,5 @@
 
 
 
-</div>  <!-- end ProfileController -->
+
+</section>  <!-- end ProfileController -->

@@ -27,10 +27,16 @@
     </head>
     <body ng-controller="FoodieController as ctrl">
 
-      <!-- Navbar Section -->
-      <section id="navbar" ng-include="'./nav.html'"></section>
 
-      <header id="siteHeader">
+      <section ng-controller="UserController as user">
+    <!-- Navbar Section -->
+    <section id="navbar" ng-include="'./nav.html'"></section>
+
+    <!-- Signup/Login Forms Section -->
+    <section id="forms" ng-include="'./forms.html'"></section>
+
+    <header id="siteHeader">
+
 
 
       <h1>Foodie Path</h1>
@@ -60,11 +66,17 @@
       </ul>
     </div>
 
+
   <!-- </section> -->
+
 
   </header>
 
-  <!-- Profile Section -->
-        <!-- <section id="profile" ng-include="'./profile.html'"></section> -->
-    </body>
-  </html>
+
+<!-- Profile Section -->
+
+      <section id="profile" ng-include="'./profile.html'"></section>
+</section>  <!-- end section tag for UserController -->
+  </body>
+</html>
+
