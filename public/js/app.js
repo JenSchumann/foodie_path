@@ -174,3 +174,174 @@ app.controller('ProfileController', ['$http', '$scope', function($http, $scope){
 
 
 }]); //end of ProfileController
+
+////////////////////////////////////////////////////////////
+
+//User controller
+
+////////////////////////////////////////////////////////////
+
+
+app.controller('UserController', ['$http', '$scope', function($http, $scope){
+  const controller = this;
+  this.modal = false;
+  this.loggedIn = false;
+  this.loginForm = true;
+  this.registerForm = false;
+  this.newDisplay = false;
+  this.currentUser = {};
+
+
+  this.toggleNew = function(){
+    this.newDisplay = !this.newDisplay;
+    this.reset = function() {
+      this.addForm.reset();
+    }
+  }
+  this.toggleModal = function(){
+    this.modal = !this.modal;
+  };
+  this.toggleForms = function(){
+    this.registerForm = !this.registerForm;
+    this.loginForm = !this.loginForm;
+  };
+  this.register = function(email, username){
+    $http({
+      method: 'POST',
+      url: '/users/register',
+      data: {
+        username: this.registeredUsername,
+        password: this.registeredPassword
+      }
+    }).then(function(response){
+      controller.loggedIn = response.data;
+      controller.registerForm = false;
+      console.log('new Foodie created');
+    }, function(err){
+      console.log(err);
+    });
+  };
+  this.goToRegister = function(){
+    this.registerForm = true;
+    this.loginForm = false;
+  };
+  this.goToLogin = function(){
+    this.loginForm = true;
+    this.registerForm = false;
+  };
+  //ajax call to login
+  this.login = function(username, password){
+    $http({
+      method: 'POST',
+      url: '/users/login',
+      data: {
+        username: this.loginUsername,
+        password: this.loginPassword
+      }
+    }).then(function(response){
+      if(response.data === true){
+      controller.loginForm = false;
+      controller.loggedIn = response.data;
+      controller.verifyLogin();
+      console.log('verified user is logged in');
+
+    } else {
+      controller.message = response.data
+    };
+    }, function(err){
+      console.log(err);
+    });
+  };
+
+  //ajax call to logout a session
+  this.logOut = function(){
+    $http({
+      method: 'GET',
+      url: '/users/logout'
+    }).then(function(response){
+      controller.loggedIn = response.data;
+      controller.loginForm = true;
+      controller.username = {};
+      console.log('user logged out');
+    });
+  };
+
+  //ajax call to show all  the users
+  // this.getUsers = function(){
+  //   $http({
+  //     method: 'GET',
+  //     url: '/users'
+  //   }).then(function(response){
+      //test this to see if commenting out  controller.allUsers will stop access of allUser in update user edit route
+  //     controller.allUsers = response.data;
+  //   }, function(err){
+  //     console.log(err);
+  //   });
+  // };
+
+  this.verifyLogin = function(){
+    $http({
+      method: 'GET',
+      url: '/users/verifyLogin'
+    }).then(function(response){
+      $scope.verifyFoodie = response.data; //this is our current users
+
+    }, function(err){
+      console.log(err);
+    });
+  };
+
+  //ajax call to identify a certain user by id
+  this.setCurrentUser = function(id){
+    $http({
+      method: 'GET',
+      url: '/users/' + id
+    }).then(function(response){
+      controller.currentUser = response.data[0]
+      $scope.input = '';
+    }, function(err){
+      console.log(err);
+    });
+  };
+
+
+  //this is where the issue is:
+  //ajax call to update the user
+  this.updateUser = function(id){
+    console.log('works', id.allUsers[4]._id);
+    // console.log("this is update user id", id);
+
+    $http({
+      method: 'PUT',
+      url: '/users/' + id.allUsers[4]._id,
+      data: this.editedUser
+    }).then(function(response){
+      controller.getUsers();
+      controller.currentUser = {};
+      controller.user = {};
+      // adding this to see if I can grab user modal input
+      controller.editedUser = {};
+      // controller.editedUser._id = {};
+    }, function(err){
+      console.log(err);
+      // console.log('error in update route');
+    });
+  };
+
+  //ajax call to delete the user
+  this.deleteUser = function(user){
+    $http({
+      method: 'DELETE',
+      url: '/users/' + user,
+    }).then(function(response){
+      // controller.getUsers();
+      controller.modal = false;
+      controller.logOut();
+    }, function(err){
+      console.log('user delete route error');
+      console.log(err);
+    });
+  };
+  // this.getUsers();
+
+}]); //end of UserController

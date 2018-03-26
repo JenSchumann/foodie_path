@@ -1,3 +1,5 @@
+<div ng-controller="FoodieController as foodie">
+
 <header class="navbar bg-dark">
   <section class="navbar-section">
     <a href="#" id="navA" class="navbar-brand mr-2 text-success">Foodie Path: Search By</a>
@@ -11,9 +13,14 @@
     <i class="fas fa-utensils"></i>
   </section>
   <section class="navbar-section">
-    <div class="input-group input-inline">
+    <!-- <div class="input-group input-inline">
       <input class="form-input" type="text" placeholder="search">
       <button class="btn btn-error input-group-btn">Search</button>
-    </div>
+    </div> -->
+    <li ng-if=!user.loggedIn ng-click="user.goToLogin()" ng-click="user.addForm.reset()"><a href="#">LOGIN</a></li>
+            <li ng-if=user.loggedIn ng-click="user.logOut()"><a href="#" style="color:#f2a41f;">LOGOUT</a></li>
+            <li ng-if=!user.loggedIn ng-click="user.goToRegister()"><a href="#" style="color:#f2a41f;">REGISTER</a></li>
   </section>
 </header>
+
+</div>
